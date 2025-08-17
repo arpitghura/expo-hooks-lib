@@ -10,7 +10,6 @@ export function useDeviceInfo(): DeviceInfo | null {
     (async () => {
       try {
         const deviceType = await Device.getDeviceTypeAsync().catch(() => null);
-        const manufacturer = await Device.getManufacturerAsync().catch(() => null);
         const data: DeviceInfo = {
           brand: Device.brand ?? null,
           modelName: Device.modelName ?? null,
@@ -18,8 +17,8 @@ export function useDeviceInfo(): DeviceInfo | null {
           osVersion: Device.osVersion ?? null,
           designName: (Device as any).designName ?? null,
           yearClass: Device.deviceYearClass ?? null,
+          manufacturer: Device?.manufacturer ?? null,
           deviceType,
-          manufacturer,
         };
         if (mounted) setInfo(data);
       } catch {
