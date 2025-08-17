@@ -1,0 +1,51 @@
+{
+  "name": "expo-hooks-lib",
+  "version": "0.1.0",
+  "description": "Tiny hooks for Expo: device info, battery, sensors, and optional Bluetooth.",
+  "keywords": ["expo", "react-native", "hooks", "sensors", "device", "battery", "bluetooth"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arpitghura/expo-hooks-lib.git"
+  },
+  "bugs": {
+    "url": "https://github.com/arpitghura/expo-hooks-lib/issues"
+  },
+  "homepage": "https://github.com/arpitghura/expo-hooks-lib",
+  "sideEffects": false,
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/build-cjs.cjs",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18",
+    "react-native": ">=0.74",
+    "expo": ">=51"
+  },
+  "dependencies": {
+    "expo-battery": "^7.5.0",
+    "expo-device": "^6.0.0",
+    "expo-sensors": "^13.0.0"
+  },
+  "optionalDependencies": {
+    "expo-bluetooth": "^0.3.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "rimraf": "^5.0.0"
+  }
+}
